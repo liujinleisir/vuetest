@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:v-bind="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title><!-- 生产环境版本，优化了尺寸和速度 -->
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+</head>
+
+<body>
+    <div id="app">
+        {{ message }}
+    </div>
+    <div id="app-2">
+        <span v-bind:title="message">
+            鼠标悬停几秒钟查看此处动态绑定的提示信息！
+        </span>
+    </div>
+    <div id='app-3' v-if="condition">
+        条件表达式测试
+    </div>
+    <div id='app-4'>
+        <li v-for="item in contents"> 
+           {{item.aaa}} 
+        </li>
+    </div>
+    <script>
+        var app = new Vue({
+            el: '#app',
+            data: {
+                message: 'hey'
+            }
+        })
+        var app2 = new Vue({
+            el: '#app-2',
+            data: {
+                message: '页面加载于 ' + new Date().toLocaleString()
+            }
+        })
+        var app3 = new Vue({
+            el: '#app-3',
+            data: {
+                condition: true
+            }
+        })
+        var app4 = new Vue({
+            el: '#app-4',
+            data: {
+                contents: [{
+                        aaa: 'nima'
+                    },
+                    {
+                        aaa: 'niba'
+                    },
+                    {
+                        aaa: 'ninaiani'
+                    },
+                    {
+                        aaa: 'niyeye'
+                    }
+
+                ]
+            }
+        })
+    </script>
+
+</body>
+
+</html>
